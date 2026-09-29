@@ -1,0 +1,31 @@
+services:
+  manager:
+    image: docker:26-dind
+    container_name: swarm-manager
+    privileged: true
+    command: dockerd
+    hostname: manager
+    networks:
+      - swarm-net
+
+  worker1:
+    image: docker:26-dind
+    container_name: swarm-worker-1
+    privileged: true
+    command: dockerd
+    hostname: worker1
+    networks:
+      - swarm-net
+
+  worker2:
+    image: docker:26-dind
+    container_name: swarm-worker-2
+    privileged: true
+    command: dockerd
+    hostname: worker2
+    networks:
+      - swarm-net
+
+networks:
+  swarm-net:
+    driver: bridge

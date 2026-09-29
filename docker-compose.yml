@@ -1,0 +1,11 @@
+services:
+  web:
+    image: nginx
+    ports:
+      - '8080:80'
+  api:
+    image: hashicorp/http-echo
+    command:
+      - '-text=Hello from API'
+    ports:
+      - '5678:5678'
